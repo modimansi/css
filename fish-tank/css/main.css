@@ -1,0 +1,410 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 98%;
+}
+body{
+    height: 95%;
+    width: 98%;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    height: 400px;
+    width: 600px;
+    /*background-color: gold;*/
+    position: relative;
+}
+
+/*--------footer------*/
+.footer{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 174px;
+    background-color: brown;
+}
+
+/*------fish tank-------*/
+.tank{
+    bottom: 0px;
+    left: calc(50% - 175px);
+    position: absolute;
+    height: 210px;
+    width: 350px;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+   /* background-color: cadetblue;*/
+}
+.tank-base{
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 30px;
+    background-color: rgba(108, 156, 228);
+    border: 2px solid black;
+    z-index: 0;
+}
+.tank-top{
+    position: absolute;
+    top: 0;
+    left: calc(50% - 102px);
+    width: 204px;
+    height: 3px;
+    background-color: black;
+    border: 1px solid black;
+    z-index: 10;
+}
+.fish-tank{
+    position: absolute;
+    bottom: -14px;
+    left: calc(50% - 135px);
+    width: 270px;
+    height: 270px;
+    /*background-color: azure;*/
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 0;
+}
+.water{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 170px;
+    width: 100%;
+    background-color: rgba(108, 156, 228, 0.5);
+    z-index: 0;
+}
+
+/*------sponge------*/
+.sponge{
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 40px);
+    height: 100px;
+    width: 80px;
+    z-index: 1;
+
+    animation-name: up-down;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.sponge-body{
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40px);
+    height: 100px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 15%;
+    z-index: 0;
+    background-color: rgb(176, 185, 45);
+
+    animation-name: rotate-sponge;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.sponge > .sponge-body > .spot1{
+    position: absolute;
+    top: 70%;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(109, 128, 0);
+    border-radius: 50%;
+}
+.sponge > .sponge-body > .spot2{
+    position: absolute;
+    top: 40%;
+    right: 2%;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(109, 128, 0);
+    border-radius: 50%;
+}
+.sponge > .sponge-body > .spot3{
+    position: absolute;
+    bottom: 0%;
+    right: 7%;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(109, 128, 0);
+    border-radius: 50%;
+}
+.sponge > .sponge-body > .cut1{
+    position: absolute;
+    bottom: -2px;
+    left: 10%;
+    height: 16px;
+    width: 25px;
+    border: 3px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom: 0;
+    background-color: azure;
+}
+.sponge > .sponge-body > .cut2{
+    position: absolute;
+    top: 50%;
+    right: -2px;
+    height: 25px;
+    width: 16px;
+    border: 3px solid black;
+    border-top-left-radius: 25px;   
+    border-bottom-left-radius: 25px;
+    border-right: 0;
+    background-color: azure;
+}
+.sponge > .sponge-body > .line{
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 20px;
+    width: 85%;
+    border-right: 5px solid black;
+    border-top: 0px solid black;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 20px;
+}
+.sponge > .face > .eye > .left-eye{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    top: 30px;
+    left: 20px;
+    z-index: 1;
+    background-color: black;
+}
+.sponge > .face > .eye > .right-eye{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    top: 30px;
+    right: 20px;
+    z-index: 1;
+    background-color: black;
+}
+
+/*-----water rise-----*/
+.water-rise{
+    position: absolute;
+    bottom: 158px;
+    left: 300px;
+    height: 220px;
+    background-color: rgba(108, 156, 228, 0.5);
+    z-index: 2;
+    animation: water-rise 3s infinite;
+}
+
+/*----water drop-----*/
+.drop{
+    position: absolute;
+    top: 150px;
+    left: 290px;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(108, 156, 228, 0.5);
+    border-radius: 50%;
+    visibility: hidden;
+
+    animation: water-drop 3s infinite;
+}
+
+/*-----mouth-----*/
+.mouth{
+    position: absolute;
+    top: 45px;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 20px;
+    z-index: 1;
+}
+.mouth > .mouth-round{
+    position: absolute;
+    top: 0;
+    left: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+
+    animation: mouth-open 3s infinite;
+}
+.mouth > .mouth-semi{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 15px;
+    width: 30px;
+    background-color: red;
+    visibility: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 2px solid black;
+    animation: mouth-semi 3s infinite;
+}
+.mouth-close > .curve1{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 7.5px;
+    width: 15px;
+    visibility: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top: 0px;
+    border-bottom: 2px solid black;
+    animation: mouth-curve 3s infinite;
+}
+.mouth-close > .curve2{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    height: 7.5px;
+    width: 15px;
+    visibility: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top: 0px;
+    border-bottom: 2px solid black;
+    animation: mouth-curve 3s infinite;
+}
+
+/*-----air-bubbles-----*/
+ .air-bubble1{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 90px;
+    left: 90px;
+    border-radius: 50%;
+    background-color: rgb(212, 227, 255);
+    z-index: 9;
+    visibility: hidden;
+
+    animation: bubble1 3s infinite;
+}
+ .air-bubble2{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 90px;
+    left: 90px;
+    border-radius: 50%;
+    background-color: rgb(212, 227, 255);
+    z-index: 9;
+    visibility: hidden;
+
+    animation: bubble2 3s infinite;
+}
+.air-bubble3{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 90px;
+    left: 90px;
+    border-radius: 50%;
+    background-color: rgb(212, 227, 255);
+    z-index: 9;
+    visibility: hidden;
+
+    animation: bubble3 3s infinite;
+}
+.air-bubble4{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 90px;
+    right: 90px;
+    border-radius: 50%;
+    background-color: rgb(212, 227, 255);
+    z-index: 9;
+    visibility: hidden;
+
+    animation: bubble4 3s infinite;
+}
+ .air-bubble5{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 90px;
+    right: 90px;
+    border-radius: 50%;
+    background-color: rgb(212, 227, 255);
+    z-index: 9;
+    visibility: hidden;
+
+    animation: bubble5 3s infinite;
+}
+.air-bubble6{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 90px;
+    right: 90px;
+    border-radius: 50%;
+    background-color: rgb(212, 227, 255);
+    z-index: 9;
+    visibility: hidden;
+
+    animation: bubble6 3s infinite;
+}
+
+/*------splash-------*/
+.splash{
+    position: absolute;
+    top: 0px;
+    
+}
+.one{
+    /*background-color: darkblue;*/
+    height: 50px;
+    width: 50px;
+    left: 60px;
+}
+.two{
+    /*background-color: darkblue;*/
+    height: 50px;
+    width: 50px;
+    right: 60px;
+}
+.splash>.h {
+    height: 3px;
+    width: 22px;
+    background-color: cadetblue;
+    position: absolute;
+    top: 23px;
+    animation: sparkle-h 3s infinite;
+}
+.splash>.v {
+    width: 3px;
+    height: 22px; 
+    background-color: cadetblue;
+    position: absolute;
+    left: 23px;
+
+    animation: sparkle-v 3s infinite;
+}
+.splash>.v1 {
+    top: 0px;
+}
+.splash>.v2 {
+    bottom: 0px;
+}
+.splash>.h1 {
+    right: 0px;
+}
+.splash>.h2 {
+    left: 0px;
+}
+
